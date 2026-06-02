@@ -1,6 +1,13 @@
-import { Project, SkillProgress } from '../types';
-import { motion } from 'motion/react';
-import { Sparkles, Terminal, Code2, Database, Network, ChevronRight } from 'lucide-react';
+import { Project, SkillProgress } from "../types";
+import { motion } from "motion/react";
+import {
+  Sparkles,
+  Terminal,
+  Code2,
+  Database,
+  Network,
+  ChevronRight,
+} from "lucide-react";
 
 interface NikhilHomeProps {
   skills: SkillProgress[];
@@ -17,7 +24,7 @@ export default function NikhilHome({
   skills,
   techStack,
   personalProjects,
-  onSelectProject
+  onSelectProject,
 }: NikhilHomeProps) {
   return (
     <motion.div
@@ -28,24 +35,29 @@ export default function NikhilHome({
       className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-24"
     >
       {/* 1. Jumbotron Introduction Frame */}
-      <div id="nikhil-jumbotron" className="mb-20 grid grid-cols-1 items-start gap-8 lg:grid-cols-12 md:mb-32">
+      <div
+        id="nikhil-jumbotron"
+        className="mb-20 grid grid-cols-1 items-start gap-8 lg:grid-cols-12 md:mb-32"
+      >
         <div className="lg:col-span-8">
           <span className="font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase flex items-center gap-1.5">
             <Terminal className="h-3.5 w-3.5" />
             // PERSONAL GREETING
           </span>
           <h1 className="mt-4 font-display text-4xl font-bold leading-[1.1] tracking-tight text-[#1a1a1a] sm:text-5xl md:text-7xl">
-            Hi, I am{' '}
+            Hi, I am{" "}
             <span className="text-[#5a5a40] italic font-normal inline-block relative font-display">
               Nikhil.
               <span className="absolute bottom-2 left-0 h-2 w-full bg-[#5a5a40]/10 -z-10 rounded-sm" />
             </span>
           </h1>
           <h2 className="mt-4 font-display text-xl font-medium text-gray-700 sm:text-2xl md:text-3xl max-w-2xl leading-tight font-sans">
-            A passionate developer learning and crafting digital experiences.
+            Code. Create. Innovate.
           </h2>
+
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg font-sans">
-            Based in Bangalore, India, I specialize in full-stack engineering, client-side animations, and developer tools. Exploring the intersections of typography, engineering, and beautiful minimalist layouts.
+            A developer dedicated to learning, building, and delivering engaging
+            digital experiences.
           </p>
         </div>
 
@@ -57,15 +69,19 @@ export default function NikhilHome({
           <div className="space-y-3 text-gray-600">
             <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
               <span>ACTIVE REGION:</span>
-              <span className="text-[#1a1a1a] font-semibold">ASIA-SOUTH1 (BLR)</span>
+              <span className="text-[#1a1a1a] font-semibold">ASIA-SOUTH1</span>
             </div>
             <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
               <span>WORK SPEC:</span>
-              <span className="text-[#1a1a1a] font-semibold">CREATIVE DEVELOPER</span>
+              <span className="text-[#1a1a1a] font-semibold">
+                CREATIVE DEVELOPER
+              </span>
             </div>
             <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
               <span>EXPERIENCE:</span>
-              <span className="text-[#1a1a1a] font-semibold">LEARNING & SHAPING</span>
+              <span className="text-[#1a1a1a] font-semibold">
+                LEARNING & SHAPING
+              </span>
             </div>
             <div className="flex justify-between pb-1">
               <span>COLLAB:</span>
@@ -88,16 +104,24 @@ export default function NikhilHome({
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {skills.map((skill) => (
-            <div key={skill.name} id={`skill-metric-${skill.name.toLowerCase().replace(/\s+/g, '-')}`} className="group">
+            <div
+              key={skill.name}
+              id={`skill-metric-${skill.name.toLowerCase().replace(/\s+/g, "-")}`}
+              className="group"
+            >
               <div className="mb-2 flex items-center justify-between text-xs font-semibold">
-                <span className="text-gray-700 tracking-wide">{skill.name}</span>
-                <span className="text-[#5a5a40] font-mono">{skill.percentage}%</span>
+                <span className="text-gray-700 tracking-wide">
+                  {skill.name}
+                </span>
+                <span className="text-[#5a5a40] font-mono">
+                  {skill.percentage}%
+                </span>
               </div>
               <div className="h-2 w-full overflow-hidden bg-[#e8e8df]/50 rounded-full">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${skill.percentage}%` }}
-                  transition={{ duration: 1.2, ease: 'easeOut' }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
                   className="h-full bg-gradient-to-r from-[#5a5a40] to-[#808060] rounded-full"
                 />
               </div>
@@ -185,7 +209,9 @@ export default function NikhilHome({
               Projects Grid
             </h2>
           </div>
-          <span className="font-mono text-xs text-gray-400">TOUCH / CLICK TO VIEW DETAILS</span>
+          <span className="font-mono text-xs text-gray-400">
+            TOUCH / CLICK TO VIEW DETAILS
+          </span>
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
