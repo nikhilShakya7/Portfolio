@@ -1,0 +1,6 @@
+{
+  "name": "STUDIO Portfolio",
+  "description": "A minimalist, responsive digital portfolio for showcasing elite interaction, product, and brand design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
