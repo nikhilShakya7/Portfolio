@@ -1,8 +1,17 @@
-import { Experience } from '../types';
-import { motion } from 'motion/react';
-import AnimatedSection from './AnimatedSection';
-import { staggerContainer, staggerItem } from '../utils/animations';
-import { Milestone, Cpu, DraftingCompass, Activity, ArrowRight, Github, Twitter, Linkedin } from 'lucide-react';
+import { Experience } from "../types";
+import { motion } from "motion/react";
+import AnimatedSection from "./AnimatedSection";
+import { staggerContainer, staggerItem } from "../utils/animations";
+import {
+  Milestone,
+  Cpu,
+  DraftingCompass,
+  Activity,
+  ArrowRight,
+  Github,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 
 interface AboutProps {
   experiences: Experience[];
@@ -12,23 +21,26 @@ interface AboutProps {
 export default function About({ experiences, portraitImage }: AboutProps) {
   const expertises = [
     {
-      id: 'exp-systems',
-      title: 'Interactive Systems',
-      description: 'Building custom interactive frameworks, highly responsive web dashboards, and web canvases designed to perform under demanding conditions.',
-      icon: Cpu
+      id: "exp-systems",
+      title: "Interactive Systems",
+      description:
+        "Building custom interactive frameworks, highly responsive web dashboards, and web canvases designed to perform under demanding conditions.",
+      icon: Cpu,
     },
     {
-      id: 'exp-ds',
-      title: 'Design Systems',
-      description: 'Engineering rigid, token-driven web components, layout grids, and visual guidelines scaled across multi-channel environments.',
-      icon: DraftingCompass
+      id: "exp-ds",
+      title: "Design Systems",
+      description:
+        "Engineering rigid, token-driven web components, layout grids, and visual guidelines scaled across multi-channel environments.",
+      icon: DraftingCompass,
     },
     {
-      id: 'exp-kinetic',
-      title: 'Kinetic Graphics',
-      description: 'Specifying clean, user-centric screen transitions, fluid hover states, and canvas renderings using industry-standard easings.',
-      icon: Activity
-    }
+      id: "exp-kinetic",
+      title: "Kinetic Graphics",
+      description:
+        "Specifying clean, user-centric screen transitions, fluid hover states, and canvas renderings using industry-standard easings.",
+      icon: Activity,
+    },
   ];
 
   return (
@@ -51,13 +63,20 @@ export default function About({ experiences, portraitImage }: AboutProps) {
             className="mt-8 space-y-6 text-base leading-relaxed text-gray-600 md:text-lg font-sans"
           >
             <p className="font-medium text-[#1a1a1a]">
-              I am an independent interaction designer and creative director based in Milan, working with cultural institutions and forward-thinking brands globally.
+              I am an independent interaction designer and creative director
+              based in Milan, working with cultural institutions and
+              forward-thinking brands globally.
             </p>
             <p>
-              Over the last decade, I've developed digital systems, interactive installations, and brand identities that bridge physical spaces and virtual mediums. My work is anchored in meticulous grid structures, clear typographic hierarchy, and subtle transitions.
+              Over the last decade, I've developed digital systems, interactive
+              installations, and brand identities that bridge physical spaces
+              and virtual mediums. My work is anchored in meticulous grid
+              structures, clear typographic hierarchy, and subtle transitions.
             </p>
             <p>
-              I believe software interfaces must feel highly satisfying and immediate, which is why I merge rigorous engineering and elegant typography styling to deliver tailored aesthetic systems.
+              I believe software interfaces must feel highly satisfying and
+              immediate, which is why I merge rigorous engineering and elegant
+              typography styling to deliver tailored aesthetic systems.
             </p>
           </motion.div>
 
@@ -85,12 +104,12 @@ export default function About({ experiences, portraitImage }: AboutProps) {
                   className="group relative"
                 >
                   <div className="absolute -left-[22px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[#f5f5f0] bg-stone-300 transition-all duration-300 group-hover:bg-[#5a5a40] group-hover:scale-110" />
-                  
+
                   <span className="font-mono text-xs text-[#5a5a40] font-semibold">
                     {exp.period}
                   </span>
                   <h3 className="mt-1 font-display text-base font-bold text-[#1a1a1a]">
-                    {exp.role}{' '}
+                    {exp.role}{" "}
                     <span className="font-sans font-medium text-gray-400">
                       @ {exp.company}
                     </span>
@@ -126,15 +145,19 @@ export default function About({ experiences, portraitImage }: AboutProps) {
               referrerPolicy="no-referrer"
               className="w-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 aspect-[4/5]"
             />
-            
+
             <div className="mt-4 border-t border-[#e8e8df] pt-4 grid grid-cols-2 font-mono text-[10px] text-gray-450">
               <div>
                 <span>ROLE</span>
-                <span className="block mt-0.5 text-[#1a1a1a] font-bold">PRINCIPAL CREATIVE</span>
+                <span className="block mt-0.5 text-[#1a1a1a] font-bold">
+                  PRINCIPAL CREATIVE
+                </span>
               </div>
               <div className="text-right">
                 <span>REPRESENTATION</span>
-                <span className="block mt-0.5 text-[#1a1a1a] font-bold">MILAN / MILANO</span>
+                <span className="block mt-0.5 text-[#1a1a1a] font-bold">
+                  MILAN / MILANO
+                </span>
               </div>
             </div>
           </motion.div>
@@ -147,9 +170,27 @@ export default function About({ experiences, portraitImage }: AboutProps) {
             className="mt-8 flex justify-center gap-6"
           >
             {[
-              { id: 'twitter-link', href: 'https://twitter.com', icon: Twitter, label: 'Twitter', color: 'text-[#1da1f2]' },
-              { id: 'linkedin-link', href: 'https://linkedin.com', icon: Linkedin, label: 'LinkedIn', color: 'text-[#0a66c2]' },
-              { id: 'github-link', href: 'https://github.com', icon: Github, label: 'GitHub', color: 'text-black' },
+              {
+                id: "instagram-link",
+                href: "https://twitter.com",
+                icon: Instagram,
+                label: "Instagram",
+                color: "text-[#1da1f2]",
+              },
+              {
+                id: "linkedin-link",
+                href: "https://linkedin.com",
+                icon: Linkedin,
+                label: "LinkedIn",
+                color: "text-[#0a66c2]",
+              },
+              {
+                id: "github-link",
+                href: "https://github.com",
+                icon: Github,
+                label: "GitHub",
+                color: "text-black",
+              },
             ].map(({ id, href, icon: Icon, label, color }) => (
               <motion.a
                 key={id}
@@ -170,7 +211,10 @@ export default function About({ experiences, portraitImage }: AboutProps) {
       </div>
 
       {/* 4. Core Expertises Bento Grid */}
-      <AnimatedSection delay={0.05} className="mt-24 border-t border-[#e8e8df] pt-16">
+      <AnimatedSection
+        delay={0.05}
+        className="mt-24 border-t border-[#e8e8df] pt-16"
+      >
         <div className="mb-10 text-center max-w-xl mx-auto">
           <span className="font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase">
             // SPECIALIZATION
@@ -179,7 +223,8 @@ export default function About({ experiences, portraitImage }: AboutProps) {
             Core Expertise
           </h2>
           <p className="mt-3 text-xs text-gray-500">
-            A precise division of creative and structural domains engineered to deliver unmatched visual consistency.
+            A precise division of creative and structural domains engineered to
+            deliver unmatched visual consistency.
           </p>
         </div>
 
@@ -212,9 +257,10 @@ export default function About({ experiences, portraitImage }: AboutProps) {
                     {item.description}
                   </p>
                 </div>
-                
+
                 <div className="mt-8 flex items-center gap-1 text-[10px] font-mono text-[#5a5a40] uppercase tracking-wider font-semibold opacity-60 group-hover:opacity-100 transition-opacity">
-                  Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  Learn more{" "}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
               </motion.div>
             );

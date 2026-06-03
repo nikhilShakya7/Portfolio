@@ -4,6 +4,7 @@ export const VIEW_PATHS: Record<ViewType, string> = {
   "nikhil-home": "/",
   "studio-home": "/studio",
   "selected-works": "/work",
+  "works": "/works",
   about: "/about",
   contact: "/contact",
 };

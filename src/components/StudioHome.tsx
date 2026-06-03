@@ -2,12 +2,7 @@ import { Project, ViewType } from "../types";
 import { motion } from "motion/react";
 import AnimatedSection from "./AnimatedSection";
 import { staggerContainer, staggerItem } from "../utils/animations";
-import {
-  ArrowUpRight,
-  Laptop,
-  Landmark,
-  Sparkles,
-} from "lucide-react";
+import { ArrowUpRight, Laptop, Landmark, Sparkles } from "lucide-react";
 
 interface StudioHomeProps {
   featuredProjects: Project[];
@@ -198,7 +193,11 @@ export default function StudioHome({
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              duration: 0.5,
+              delay: idx * 0.12,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="flex items-start gap-4"
           >
             <div className="rounded-2xl bg-white p-3 shadow-xs border border-[#e8e8df] text-[#5a5a40]">
@@ -206,7 +205,9 @@ export default function StudioHome({
             </div>
             <div>
               <h4 className="font-display font-bold text-[#1a1a1a]">{title}</h4>
-              <p className="mt-1.5 text-xs text-gray-600 leading-relaxed">{text}</p>
+              <p className="mt-1.5 text-xs text-gray-600 leading-relaxed">
+                {text}
+              </p>
             </div>
           </motion.div>
         ))}

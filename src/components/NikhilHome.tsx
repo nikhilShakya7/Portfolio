@@ -13,6 +13,7 @@ interface NikhilHomeProps {
     tools: string[];
   };
   personalProjects: Project[];
+  onContact: () => void;
   onSelectProject: (project: Project) => void;
 }
 
@@ -20,40 +21,32 @@ export default function NikhilHome({
   skills,
   techStack,
   personalProjects,
+  onContact,
   onSelectProject,
 }: NikhilHomeProps) {
-  // Combine all phrases into one unified typing target
   const fullPhrase = "Code. Create. Innovate.";
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-
-    // Smooth custom speeds: faster deletion, calculated typing cadence
     const typingSpeed = isDeleting ? 30 : 80;
-    const holdPositionTime = 2000; // Pause when fully typed out
+    const holdPositionTime = 2000;
 
     const handleType = () => {
       if (!isDeleting) {
-        // Build the entire text string progressively
         setCurrentText(fullPhrase.substring(0, currentText.length + 1));
-
         if (currentText === fullPhrase) {
-          // Stay on the full phrase before beginning backspace
           timer = setTimeout(() => setIsDeleting(true), holdPositionTime);
           return;
         }
       } else {
-        // Strip text string away progressively
         setCurrentText(fullPhrase.substring(0, currentText.length - 1));
-
         if (currentText === "") {
           setIsDeleting(false);
           return;
         }
       }
-
       timer = setTimeout(handleType, typingSpeed);
     };
 
@@ -84,30 +77,28 @@ export default function NikhilHome({
 
   return (
     <div className="mx-auto max-w-7xl px-6 md:px-12">
-      {/* 1. Jumbotron — full viewport height, space filled top & bottom */}
+      {/* 1. Main Hero Section — Centered perfectly inside viewport height */}
       <section
         id="nikhil-jumbotron"
-        className="flex min-h-[calc(100vh-64px)] flex-col justify-between py-6"
+        className="flex min-h-[calc(100vh-80px)] flex-col justify-between py-8 md:py-12"
       >
-        {/* TOP BAR — fills upper space */}
+        {/* TOP BAR */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-gray-400"
+          className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-gray-400 pb-4"
         >
           <span className="flex items-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#5a5a40] animate-pulse" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#32CD32] animate-pulse" />
             AVAILABLE FOR WORK
           </span>
-          <span className="hidden sm:block">
-            EST. 2024 — CREATIVE DEVELOPER
-          </span>
+
           <span>v1.0.0 — PORTFOLIO</span>
         </motion.div>
 
-        {/* CENTER CONTENT */}
-        <div className="flex flex-col items-center gap-10 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+        {/* CENTER CONTENT — Flex grow holds the absolute center axis */}
+        <div className="flex flex-col items-center gap-10 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left my-auto py-8">
           {/* Left / main copy */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -133,7 +124,7 @@ export default function NikhilHome({
               <span className="inline-block w-[3px] h-[24px] md:h-[32px] bg-[#5a5a40] ml-1.5 animate-[ping_1s_infinite_ease-in-out]" />
             </h2>
 
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg font-sans">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg font-sans">
               A developer dedicated to learning, building, and delivering
               engaging digital experiences.
             </p>
@@ -178,12 +169,12 @@ export default function NikhilHome({
           </motion.div>
         </div>
 
-        {/* BOTTOM BAR — scroll indicator fills lower space */}
+        {/* BOTTOM BAR */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center justify-between"
+          className="flex items-center justify-between pt-4 border-t border-[#e8e8df]/60 w-full"
         >
           {/* Scroll cue */}
           <motion.div
@@ -228,8 +219,8 @@ export default function NikhilHome({
         </motion.div>
       </section>
 
-      {/* Below-the-fold sections */}
-      <div className="py-12 md:py-24 space-y-20 md:space-y-32">
+      {/* Below-the-fold sections — Guaranteed off-screen initialization */}
+      <div className="pt-16 pb-12 space-y-24 md:space-y-32">
         {/* 2. Skills & Expertise */}
         <AnimatedSection id="skills-visual-section" delay={0.05}>
           <div className="mb-10 text-left border-b border-[#e8e8df] pb-4">
@@ -337,9 +328,6 @@ export default function NikhilHome({
                 Projects Grid
               </h2>
             </div>
-            <span className="font-mono text-xs text-gray-400">
-              TOUCH / CLICK TO VIEW DETAILS
-            </span>
           </div>
 
           <motion.div
@@ -388,6 +376,33 @@ export default function NikhilHome({
               </motion.div>
             ))}
           </motion.div>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.05}>
+          <div className="relative overflow-hidden rounded-3xl bg-[#1a1a1a] px-8 py-16 text-center text-white md:px-16 md:py-24">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(90,90,64,0.18),transparent_40%)] pointer-events-none" />
+            <span className="font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase">
+              // CREATIVE COLLABORATION
+            </span>
+            <h3 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+              Ready to elevate your <br className="hidden sm:inline" /> digital
+              presence?
+            </h3>
+            <p className="mx-auto mt-6 max-w-lg text-sm text-stone-300 leading-relaxed md:text-base">
+              Let's discuss your next project. We collaborate on selecting
+              custom typography, responsive design, and tailored visual
+              components.
+            </p>
+            <motion.button
+              id="call-to-action-btn"
+              onClick={onContact}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="mx-auto mt-10 flex items-center gap-2 px-4 py-3.5 rounded-sm bg-white text-black hover:bg-[#5a5a40] hover:text-white shadow-sm font-mono text-[12px] uppercase tracking-widest transition-colors duration-200 cursor-pointer"
+            >
+              Get In Touch
+            </motion.button>
+          </div>
         </AnimatedSection>
       </div>
     </div>

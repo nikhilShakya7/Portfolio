@@ -24,4 +24,4 @@ export interface SkillProgress {
   percentage: number;
 }
 
-export type ViewType = 'studio-home' | 'selected-works' | 'about' | 'contact' | 'nikhil-home';
+export type ViewType = 'studio-home' | 'selected-works' | 'works' | 'about' | 'contact' | 'nikhil-home';

@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import StudioHome from "./components/StudioHome";
 import NikhilHome from "./components/NikhilHome";
 import SelectedWorks from "./components/SelectedWorks";
+import Works from "./components/Works";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectDetailModal from "./components/ProjectDetailModal";
@@ -23,6 +24,8 @@ import {
   Linkedin,
   HelpCircle,
   ArrowUpRight,
+  Instagram,
+  MailIcon,
 } from "lucide-react";
 
 export default function App() {
@@ -61,7 +64,11 @@ export default function App() {
         <main className="w-full relative min-h-[calc(100vh-140px)]">
           <AnimatePresence mode="wait">
             {currentView === "studio-home" && (
-              <motion.div key="studio-home" className="w-full" {...pageTransition}>
+              <motion.div
+                key="studio-home"
+                className="w-full"
+                {...pageTransition}
+              >
                 <StudioHome
                   featuredProjects={PROJECTS.filter((p) => p.featured)}
                   onViewChange={setCurrentView}
@@ -71,22 +78,37 @@ export default function App() {
             )}
 
             {currentView === "nikhil-home" && (
-              <motion.div key="nikhil-home" className="w-full" {...pageTransition}>
+              <motion.div
+                key="nikhil-home"
+                className="w-full"
+                {...pageTransition}
+              >
                 <NikhilHome
                   skills={NIKHIL_SKILLS}
                   techStack={TECH_STACK}
                   personalProjects={PROJECTS}
                   onSelectProject={setSelectedProject}
+                  onContact={() => setCurrentView("contact")}
                 />
               </motion.div>
             )}
 
             {currentView === "selected-works" && (
-              <motion.div key="selected-works" className="w-full" {...pageTransition}>
+              <motion.div
+                key="selected-works"
+                className="w-full"
+                {...pageTransition}
+              >
                 <SelectedWorks
                   projects={PROJECTS}
                   onSelectProject={setSelectedProject}
                 />
+              </motion.div>
+            )}
+
+            {currentView === "works" && (
+              <motion.div key="works" className="w-full" {...pageTransition}>
+                <Works />
               </motion.div>
             )}
 
@@ -138,7 +160,7 @@ export default function App() {
               className="md:col-span-2 text-left"
             >
               <span className="font-display font-black text-xl tracking-widest text-[#5a5a40]">
-                STUDIO
+                NIKHIL
               </span>
               <p className="mt-4 max-w-sm text-xs leading-relaxed text-gray-400">
                 Crafting refined responsive digital designs, mathematical page
@@ -146,13 +168,13 @@ export default function App() {
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <a
-                  id="foot-icon-twitter"
+                  id="foot-icon-instagram"
                   href="https://twitter.com"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-neutral-800/80 p-2 text-gray-300 hover:text-white hover:bg-[#5a5a40] transition-all"
                 >
-                  <Twitter className="h-4 w-4" />
+                  <Instagram className="h-4 w-4" />
                 </a>
                 <a
                   id="foot-icon-linkedin"
@@ -171,6 +193,15 @@ export default function App() {
                   className="rounded-full bg-neutral-800/80 p-2 text-gray-300 hover:text-white hover:bg-[#5a5a40] transition-all"
                 >
                   <Github className="h-4 w-4" />
+                </a>
+                <a
+                  id="foot-icon-mail"
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full bg-neutral-800/80 p-2 text-gray-300 hover:text-white hover:bg-[#5a5a40] transition-all"
+                >
+                  <MailIcon className="h-4 w-4" />
                 </a>
               </div>
             </motion.div>
@@ -242,10 +273,6 @@ export default function App() {
               <p className="pt-2">BUILD SPEC: React v19.0</p>
               <p>STYLING: Tailwind CSS v4</p>
               <p>ANIMATION: Framer Motion v12</p>
-              <p className="text-[#5a5a40] font-bold">
-                MODE:{" "}
-                {personaMode === "nikhil" ? "Nikhil Personal" : "Studio Agency"}
-              </p>
             </motion.div>
           </div>
 
@@ -257,18 +284,8 @@ export default function App() {
             className="mt-12 border-t border-neutral-850 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-gray-500 text-left gap-4"
           >
             <span>
-              &copy; {new Date().getFullYear()} STUDIO CO. ALL RIGHTS RESERVED
-              WORLDWIDE.
+              &copy; {new Date().getFullYear()} ALL RIGHTS RESERVED WORLDWIDE.
             </span>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-white">
-                PRIVACY
-              </a>
-              <span>/</span>
-              <a href="#" className="hover:text-white">
-                TERMS & IMPRESSUM
-              </a>
-            </div>
           </motion.div>
         </div>
       </motion.footer>

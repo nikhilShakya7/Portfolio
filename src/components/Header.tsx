@@ -14,8 +14,8 @@ export default function Header({ currentView, onViewChange }: HeaderProps) {
     {
       id: "work-nav",
       label: "Work",
-      views: ["selected-works", "nikhil-home"] as ViewType[],
-      targetView: "nikhil-home" as ViewType,
+      views: ["works", "nikhil-home"] as ViewType[],
+      targetView: "works" as ViewType,
       icon: Briefcase,
     },
     {
@@ -49,14 +49,14 @@ export default function Header({ currentView, onViewChange }: HeaderProps) {
             onClick={() => onViewChange("nikhil-home")}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="font-display text-lg font-bold tracking-tight text-[#5a5a40] transition-opacity hover:opacity-85"
+            className="font-display text-2xl font-bold tracking-tight text-[#5a5a40] transition-opacity hover:opacity-85 cursor-pointer"
           >
             NIKHIL
           </motion.button>
 
           <div className="hidden items-center gap-1 rounded-full border border-[#e8e8df] bg-white/90 px-3 py-1.5 sm:flex">
-            <Code2 className="h-3 w-3 text-[#5a5a40]" />
-            <span className="text-[11px] font-medium tracking-wide text-[#5a5a40]">
+            <Code2 className="h-2 w-3 text-[#5a5a40]" />
+            <span className="text-[10px] font-medium tracking-wide text-[#5a5a40]">
               Portfolio
             </span>
           </div>
@@ -114,7 +114,7 @@ export default function Header({ currentView, onViewChange }: HeaderProps) {
             whileHover={{ scale: 1.04, y: -1 }}
             whileTap={{ scale: 0.97 }}
             style={{ originX: 0.5, originY: 0.5 }}
-            className="hire-me-btn cursor-pointer rounded-full bg-[#5a5a40] px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-sm"
+            className="hire-me-btn cursor-pointer bg-black px-5 py-[9px] text-[11px] font-bold tracking-[0.15em] text-white  shadow-sm"
           >
             Hire Me
           </motion.button>
