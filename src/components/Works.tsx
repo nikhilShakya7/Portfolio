@@ -4,28 +4,27 @@ import { motion, AnimatePresence, Variants } from "motion/react";
 interface DesignProject {
   id: string;
   title: string;
-  category: "BRANDING" | "UI/UX" | "MOTION";
+  category: "REACT JS" | "NEXT JS" | "PYTHON" | "MOBILE";
   description: string;
   image: string;
+  link: string;
 }
 
 interface SelectedWorksProps {
   onSelectProject?: (project: DesignProject) => void;
 }
 
-// Parent container layout variants for the entrance orchestration
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08, // Staggers the card entrances sequentially
+      staggerChildren: 0.08,
       delayChildren: 0.1,
     },
   },
 };
 
-// Card structural animation states explicitly typed to Framer Motion's Variants
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 32 },
   show: {
@@ -33,72 +32,105 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.75,
-      ease: [0.16, 1, 0.3, 1], // TypeScript now validates this as a fixed cubic-bezier tuple format
+      ease: [0.16, 1, 0.3, 1],
     },
   },
 };
 
 export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
   const [activeFilter, setActiveFilter] = useState<
-    "ALL" | "BRANDING" | "UI/UX" | "MOTION"
+    "ALL" | "REACT JS" | "NEXT JS" | "PYTHON" | "MOBILE"
   >("ALL");
 
-  const categories = ["ALL", "BRANDING", "UI/UX", "MOTION"] as const;
+  const categories = [
+    "ALL",
+    "REACT JS",
+    "NEXT JS",
+    "PYTHON",
+    "MOBILE",
+  ] as const;
 
   const worksData: DesignProject[] = [
     {
-      id: "aura-skincare",
-      title: "Aura Skincare",
-      category: "BRANDING",
+      id: "aura-architecture",
+      link: "https://react-js-event-manager.vercel.app/",
+      title: "Event Manager",
       description:
-        "Visual identity and packaging design focusing on raw, organic materials and minimalist...",
-      image:
-        "https://images.unsplash.com/photo-1608248597481-496100c8c836?q=80&w=800&auto=format&fit=crop",
+        "A stylish React-based UI showcasing modern layouts and responsive design that helps to manage events.",
+      category: "REACT JS",
+      image: "/images/10780103_19198080.svg",
     },
     {
-      id: "nexus-finance",
-      title: "Nexus Finance",
-      category: "UI/UX",
+      id: "Weather Application",
+      title: "Weather Application",
       description:
-        "A comprehensive dashboard redesign to simplify complex data streams for institutional...",
-      image:
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+        "A React app that fetches real-time weather data with a clean and user-friendly interface.",
+      category: "REACT JS",
+      link: "https://reactjs-weather-app-phi.vercel.app/",
+      image: "/images/weather.jpg",
     },
     {
-      id: "kinetic-flow",
-      title: "Kinetic Flow",
-      category: "MOTION",
+      id: "वसः A clothing website",
+      title: "वसः A clothing website",
+      link: "https://reactjs-wosa.vercel.app/",
       description:
-        "An exploration of physics-based typography and organic fluid simulations for a tech...",
-      image:
-        "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop",
+        "Wosa (वसः) is a responsive fashion e-commerce site built with React.js and Context API. It features dynamic routing and localStorage persistence.",
+      category: "REACT JS",
+      image: "/images/9.svg",
     },
     {
-      id: "lumina-arch",
-      title: "Lumina Arch",
-      category: "BRANDING",
+      id: "Renovyte.",
+      title: "Renovyte.",
+      link: "https://nextjs-extension-manager.vercel.app/",
       description:
-        "Positioning a boutique architecture firm with a robust, monochromatic identity system and...",
-      image:
-        "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop",
+        "Simple and easy to use website to help you with every step of your home renovation.",
+      category: "REACT JS",
+      image: "/images/10.svg",
     },
     {
-      id: "vanguard-ed",
-      title: "Vanguard Ed",
-      category: "UI/UX",
+      id: "Movies",
+      title: "Movies",
+      link: "https://next-js-movies-phi-self.vercel.app/",
       description:
-        "A seamless, distraction-free learning platform designed for premier creative institutions.",
-      image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop",
+        "A dynamic quiz app using Next.js and TypeScript with category selection feature.",
+      category: "NEXT JS",
+      image: "/images/3.svg",
     },
     {
-      id: "sonic-identity",
-      title: "Sonic Identity",
-      category: "MOTION",
+      id: "Dashboard",
+      title: "Dashboard",
+      link: "https://next-js-dashboard-tlad.vercel.app/",
       description:
-        "Translating audio branding into reactive, generative visual systems for live...",
-      image:
-        "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop",
+        "An analytics dashboard built with modern UI components for data visualization.",
+      category: "NEXT JS",
+      image: "/images/4.svg",
+    },
+    {
+      id: "Dashboa",
+      title: "Automated face recognition Attendance System",
+      description:
+        "A Python-based system using facial recognition and SQLite to automate attendance tracking.",
+      category: "PYTHON",
+      link: "https://github.com/nikhilShakya7/Python_Face-Attendence-System",
+      image: "/images/face.svg",
+    },
+    {
+      id: "mobile",
+      link: "https://github.com/nikhilShakya7/Flutter-Flappy_Bird",
+      title: "Flappy Bird Clone",
+      description:
+        "A fun and engaging Flappy Bird clone built using Flutter and Dart with smooth animations, collision detection, and scoring.",
+      category: "MOBILE",
+      image: "/images/8.png",
+    },
+    {
+      id: "Technest",
+      link: "https://reactjs-tech-nest.vercel.app/",
+      title: "Technest",
+      description:
+        "A sleek tech UI built with React and Bootstrap to showcase media content.",
+      category: "NEXT JS",
+      image: "/images/2.svg",
     },
   ];
 
@@ -125,8 +157,8 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-xl text-base leading-relaxed text-gray-500 font-sans"
         >
-          A curated selection of digital experiences, brand identities, and
-          motion design projects crafted with precision and intent.
+          Here are some of my featured projects. Each one represents unique
+          challenges and creative solutions.
         </motion.p>
       </section>
 
@@ -139,7 +171,7 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className="relative py-2 font-mono text-[11px] font-bold tracking-widest transition-colors duration-200"
+                className="relative py-2 font-mono text-[11px] font-bold tracking-widest transition-colors duration-200 hover:cursor-pointer"
                 style={{ color: isActive ? "#000000" : "#9e9e9e" }}
               >
                 {cat}
@@ -160,7 +192,7 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3"
+        className="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
         <AnimatePresence mode="popLayout">
           {filteredWorks.map((project, index) => {
@@ -181,17 +213,109 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
                   scale: 0.95,
                   transition: { duration: 0.2 },
                 }}
-                onClick={() => onSelectProject?.(project)}
+                onClick={() => {
+                  onSelectProject?.(project);
+                  window.open(project.link, "_blank", "noopener,noreferrer");
+                }}
                 className={`group flex cursor-pointer flex-col ${dynamicOffset}`}
               >
-                {/* Image Wrap */}
-                <div className="w-full overflow-hidden bg-gray-50">
+                {/*
+                  ── IMAGE CONTAINER ──────────────────────────────────────────
+                  • relative + overflow-hidden clips the scale transform
+                  • aspect-[3/4] locks the ratio on all screen sizes
+                  • The ::before pseudo-border is replicated with an absolutely
+                    positioned inset div that scales from 0 → 1 on hover,
+                    giving a clean "draw-in" border effect matching the
+                    black / mono editorial theme.
+                */}
+                <div className="relative w-full overflow-hidden bg-gray-50 aspect-[3/4]">
+                  {/* Responsive image — fills the fixed aspect-ratio box */}
                   <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full object-cover transition-transform duration-700 ease-[0.16, 1, 0.3, 1] aspect-[3/4] group-hover:scale-[1.015]"
+                    className="
+                      absolute inset-0
+                      h-full w-full
+                      object-cover
+                      grayscale
+                      transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+                      group-hover:grayscale-0
+                      group-hover:scale-[1.04]
+                    "
                   />
+
+                  {/* Dark scrim — fades in on hover for readability depth */}
+                  <div
+                    className="
+                      absolute inset-0
+                      bg-black/0
+                      transition-colors duration-500
+                      group-hover:bg-black/10
+                    "
+                  />
+
+                  {/*
+                    Border overlay — four edges animate independently.
+                    Top & bottom scale on the X axis; left & right on the Y axis.
+                    All start at scale 0 from the correct transform origin and
+                    expand to full size on group-hover.
+                  */}
+                  {/* Top edge */}
+                  <span
+                    className="
+                      pointer-events-none absolute left-3 top-3 right-3
+                      h-[1.5px] bg-black
+                      origin-left scale-x-0
+                      transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+                      group-hover:scale-x-100
+                    "
+                  />
+                  {/* Bottom edge */}
+                  <span
+                    className="
+                      pointer-events-none absolute left-3 bottom-3 right-3
+                      h-[1.5px] bg-black
+                      origin-right scale-x-0
+                      transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75
+                      group-hover:scale-x-100
+                    "
+                  />
+                  {/* Left edge */}
+                  <span
+                    className="
+                      pointer-events-none absolute top-3 bottom-3 left-3
+                      w-[1.5px] bg-black
+                      origin-bottom scale-y-0
+                      transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
+                      group-hover:scale-y-100
+                    "
+                  />
+                  {/* Right edge */}
+                  <span
+                    className="
+                      pointer-events-none absolute top-3 bottom-3 right-3
+                      w-[1.5px] bg-black
+                      origin-top scale-y-0
+                      transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-[50ms]
+                      group-hover:scale-y-100
+                    "
+                  />
+
+                  {/* "View Project ↗" label that appears on hover */}
+                  <div
+                    className="
+                      absolute bottom-6 left-0 right-0
+                      flex justify-center
+                      opacity-0 translate-y-2
+                      transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
+                      group-hover:opacity-100 group-hover:translate-y-0
+                    "
+                  >
+                    <span className="font-mono text-[10px] font-bold tracking-widest text-black bg-white/90 px-3 py-1.5 uppercase">
+                      View Project ↗
+                    </span>
+                  </div>
                 </div>
 
                 {/* Info Text Elements */}
@@ -199,7 +323,7 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
                   <span className="font-mono text-[10px] font-bold tracking-widest text-gray-400 uppercase">
                     {project.category}
                   </span>
-                  <h3 className="mt-2 font-display text-xl font-bold tracking-tight text-black transition-colors duration-200 group-hover:text-gray-600">
+                  <h3 className="mt-2 font-display text-xl font-bold tracking-tight text-black transition-colors duration-200 group-hover:text-gray-500">
                     {project.title}
                   </h3>
                   <p className="mt-2 max-w-sm text-sm leading-relaxed text-gray-500 font-sans">
@@ -212,7 +336,7 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
         </AnimatePresence>
       </motion.div>
 
-      <div className="mt-16 border-t border-gray-100/80 pt-12 pb-16"></div>
+      <div className="mt-16 border-t border-gray-100/80 pt-12 pb-16" />
     </div>
   );
 }
