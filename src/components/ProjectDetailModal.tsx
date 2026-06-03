@@ -1,6 +1,7 @@
 import { Project } from '../types';
 import { motion } from 'motion/react';
-import { X, Calendar, User, Briefcase, Tag, Compass, Landmark, Code } from 'lucide-react';
+import { staggerContainer, staggerItem } from '../utils/animations';
+import { X, Calendar, User, Briefcase, Tag, Code } from 'lucide-react';
 
 interface ProjectDetailModalProps {
   project: Project | null;
@@ -10,21 +11,31 @@ interface ProjectDetailModalProps {
 export default function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps) {
   if (!project) return null;
 
+  const metadataItems = [
+    { icon: Briefcase, label: 'CLIENT', value: project.client || 'Aura Labs' },
+    { icon: Calendar, label: 'RELEASE YEAR', value: project.year || '2024' },
+    { icon: User, label: 'ROLE SPECIFICATION', value: project.role || 'Interaction Lead' },
+    { icon: Tag, label: 'TAG LABELS', value: project.tag },
+  ];
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 md:p-6 backdrop-blur-xs">
-      {/* Background overlay click-off element */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 md:p-6 backdrop-blur-xs"
+    >
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Modal Container */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, scale: 0.92, y: 24 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 12 }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#fbfbf6] shadow-2xl border border-[#e8e8df] custom-scrollbar"
         id="case-study-modal"
       >
-        {/* Absolute Close triggers */}
         <button
           id="close-modal-btn"
           onClick={onClose}
@@ -33,8 +44,12 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
           <X className="h-5 w-5" />
         </button>
 
-        {/* Hero banner cover image */}
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="relative"
+        >
           <img
             src={project.image}
             alt={project.title}
@@ -51,13 +66,16 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
               {project.title}
             </h2>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Grid description content */}
         <div className="p-6 md:p-10 grid grid-cols-1 gap-10 lg:grid-cols-12">
           
-          {/* Main Case review text */}
-          <div className="lg:col-span-8 text-left space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="lg:col-span-8 text-left space-y-6"
+          >
             <div>
               <h3 className="font-display text-lg font-bold text-[#1a1a1a]">
                 Case Overview & Problem Statement
@@ -76,8 +94,12 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
               </p>
             </div>
 
-            {/* Simulated Case mockup sections */}
-            <div className="rounded-2xl bg-white border border-[#e8e8df] p-5 mt-6">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.25 }}
+              className="rounded-2xl bg-white border border-[#e8e8df] p-5 mt-6"
+            >
               <span className="font-mono text-[9px] font-bold tracking-wider text-stone-500 uppercase">
                 // DIAGNOSTIC METRIC ARCHITECTURE
               </span>
@@ -91,68 +113,53 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
                   <span className="text-[#1a1a1a] font-bold text-sm">~45kb (GZIP)</span>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Right sidebar metadata table */}
-          <div className="lg:col-span-4 border-t border-gray-100 pt-8 lg:border-t-0 lg:border-l lg:border-[#e8e8df] lg:pl-10 lg:pt-0 text-left">
-            <h3 className="font-display text-sm font-bold text-[#1a1a1a] uppercase tracking-wider mb-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            animate="whileInView"
+            className="lg:col-span-4 border-t border-gray-100 pt-8 lg:border-t-0 lg:border-l lg:border-[#e8e8df] lg:pl-10 lg:pt-0 text-left"
+          >
+            <motion.h3 variants={staggerItem} className="font-display text-sm font-bold text-[#1a1a1a] uppercase tracking-wider mb-6">
               PROJECT METADATA
-            </h3>
+            </motion.h3>
 
             <div className="space-y-5 font-mono text-[11px] text-gray-550">
-              <div className="flex items-start gap-2.5">
-                <Briefcase className="h-4 w-4 text-[#5a5a40] shrink-0" />
-                <div>
-                  <span className="block text-[9px] text-stone-500 uppercase font-bold">CLIENT</span>
-                  <span className="text-[#1a1a1a] font-semibold">{project.client || 'Aura Labs'}</span>
-                </div>
-              </div>
+              {metadataItems.map(({ icon: Icon, label, value }) => (
+                <motion.div key={label} variants={staggerItem} className="flex items-start gap-2.5">
+                  <Icon className="h-4 w-4 text-[#5a5a40] shrink-0" />
+                  <div>
+                    <span className="block text-[9px] text-stone-500 uppercase font-bold">{label}</span>
+                    <span className="text-[#1a1a1a] font-semibold">{value}</span>
+                  </div>
+                </motion.div>
+              ))}
 
-              <div className="flex items-start gap-2.5">
-                <Calendar className="h-4 w-4 text-[#5a5a40] shrink-0" />
-                <div>
-                  <span className="block text-[9px] text-stone-500 uppercase font-bold">RELEASE YEAR</span>
-                  <span className="text-[#1a1a1a] font-semibold">{project.year || '2024'}</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5">
-                <User className="h-4 w-4 text-[#5a5a40] shrink-0" />
-                <div>
-                  <span className="block text-[9px] text-stone-500 uppercase font-bold">ROLE SPECIFICATION</span>
-                  <span className="text-[#1a1a1a] font-semibold">{project.role || 'Interaction Lead'}</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5">
-                <Tag className="h-4 w-4 text-[#5a5a40] shrink-0" />
-                <div>
-                  <span className="block text-[9px] text-stone-500 uppercase font-bold">TAG LABELS</span>
-                  <span className="text-gray-700">{project.tag}</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-2.5 pt-4 border-t border-gray-100">
+              <motion.div variants={staggerItem} className="flex items-start gap-2.5 pt-4 border-t border-gray-100">
                 <Code className="h-4 w-4 text-[#5a5a40] shrink-0" />
                 <div>
                   <span className="block text-[9px] text-stone-500 uppercase font-bold">CORE TECHNOLOGY</span>
                   <span className="text-stone-600 font-semibold font-sans">REACT, TYPESCRIPT, TAILWIND v4, FRAMER MOTION</span>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
-            <button
+            <motion.button
+              variants={staggerItem}
               id="modal-cta-close"
               onClick={onClose}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               className="mt-8 cursor-pointer w-full text-center border border-[#1a1a1a] bg-[#1a1a1a] text-white hover:bg-transparent hover:text-[#1a1a1a] transition-all rounded-full py-3.5 text-xs font-bold leading-tight tracking-wider uppercase font-sans"
             >
               Close case report
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

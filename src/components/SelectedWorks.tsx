@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Project } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, SlidersHorizontal, Eye } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+import { Search, Eye } from 'lucide-react';
 
 interface SelectedWorksProps {
   projects: Project[];
@@ -24,15 +25,9 @@ export default function SelectedWorks({ projects, onSelectProject }: SelectedWor
   });
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-24"
-    >
+    <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-24">
       {/* 1. Header Segment */}
-      <div id="works-header" className="mb-12 max-w-3xl">
+      <AnimatedSection id="works-header" className="mb-12 max-w-3xl">
         <span className="font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase">
           // GALLERY
         </span>
@@ -42,17 +37,18 @@ export default function SelectedWorks({ projects, onSelectProject }: SelectedWor
         <p className="mt-6 text-base leading-relaxed text-gray-600 md:text-lg font-sans">
           A curated selection of digital experiences crafting brand guidelines, interface engineering, and interactive animations. Each project is grounded in strict grids and user-centric systems.
         </p>
-      </div>
+      </AnimatedSection>
 
       {/* 2. Advanced Interactive Filter Controls & Search */}
-      <div className="mb-12 flex flex-col gap-6 border-b border-[#e8e8df] pb-6 md:flex-row md:items-center md:justify-between">
+      <AnimatedSection delay={0.05} className="mb-12 flex flex-col gap-6 border-b border-[#e8e8df] pb-6 md:flex-row md:items-center md:justify-between">
         {/* Category triggers */}
         <div className="flex flex-wrap items-center gap-2" id="category-filter-buttons">
           {categories.map((cat) => {
             const isActive = activeFilter === cat;
             return (
-              <button
+              <motion.button
                 key={cat}
+                whileTap={{ scale: 0.95 }}
                 id={`filter-${cat.toLowerCase()}`}
                 onClick={() => setActiveFilter(cat)}
                 className={`relative rounded-full px-5 py-2 text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
@@ -62,7 +58,7 @@ export default function SelectedWorks({ projects, onSelectProject }: SelectedWor
                 }`}
               >
                 {cat}
-              </button>
+              </motion.button>
             );
           })}
         </div>
@@ -81,10 +77,15 @@ export default function SelectedWorks({ projects, onSelectProject }: SelectedWor
             className="w-full rounded-full border border-[#e8e8df] bg-[#fbfbf6] py-2 pl-9 pr-4 text-xs font-medium text-[#1a1a1a] placeholder-gray-400 focus:border-[#5a5a40] focus:outline-hidden"
           />
         </div>
-      </div>
+      </AnimatedSection>
 
       {/* 4. Filter Information text feedback */}
-      <div className="mb-6 flex items-center justify-between text-xs text-stone-500 font-mono">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="mb-6 flex items-center justify-between text-xs text-stone-500 font-mono"
+      >
         <span>SHOWING {filteredProjects.length} OF {projects.length} PROJECTS</span>
         {searchQuery && (
           <button
@@ -97,7 +98,7 @@ export default function SelectedWorks({ projects, onSelectProject }: SelectedWor
             Clear filters
           </button>
         )}
-      </div>
+      </motion.div>
 
       {/* 5. Fluid Responsive Projects Grid */}
       <AnimatePresence mode="popLayout">
@@ -109,10 +110,11 @@ export default function SelectedWorks({ projects, onSelectProject }: SelectedWor
             {filteredProjects.map((project, idx) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 24, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: idx * 0.05 }}
+                whileHover={{ y: -4 }}
                 key={project.id}
                 id={`project-card-${project.id}`}
                 onClick={() => onSelectProject(project)}
@@ -193,6 +195,6 @@ export default function SelectedWorks({ projects, onSelectProject }: SelectedWor
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }

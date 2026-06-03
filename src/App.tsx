@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { ViewType, Project } from "./types";
+import { Project } from "./types";
+import { useViewRouter } from "./hooks/useViewRouter";
 import Header from "./components/Header";
 import StudioHome from "./components/StudioHome";
 import NikhilHome from "./components/NikhilHome";
@@ -8,6 +9,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectDetailModal from "./components/ProjectDetailModal";
 import { motion, AnimatePresence } from "motion/react";
+import { pageTransition } from "./utils/animations";
 import {
   PROJECTS,
   EXPERIENCES,
@@ -24,7 +26,7 @@ import {
 } from "lucide-react";
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<ViewType>("nikhil-home");
+  const { currentView, setCurrentView } = useViewRouter();
   const [personaMode, setPersonaMode] = useState<"studio" | "nikhil">("studio");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -59,7 +61,7 @@ export default function App() {
         <main className="w-full relative min-h-[calc(100vh-140px)]">
           <AnimatePresence mode="wait">
             {currentView === "studio-home" && (
-              <motion.div key="studio-home-wrap" className="w-full">
+              <motion.div key="studio-home" className="w-full" {...pageTransition}>
                 <StudioHome
                   featuredProjects={PROJECTS.filter((p) => p.featured)}
                   onViewChange={setCurrentView}
@@ -69,7 +71,7 @@ export default function App() {
             )}
 
             {currentView === "nikhil-home" && (
-              <motion.div key="nikhil-home-wrap" className="w-full">
+              <motion.div key="nikhil-home" className="w-full" {...pageTransition}>
                 <NikhilHome
                   skills={NIKHIL_SKILLS}
                   techStack={TECH_STACK}
@@ -80,7 +82,7 @@ export default function App() {
             )}
 
             {currentView === "selected-works" && (
-              <motion.div key="selected-works-wrap" className="w-full">
+              <motion.div key="selected-works" className="w-full" {...pageTransition}>
                 <SelectedWorks
                   projects={PROJECTS}
                   onSelectProject={setSelectedProject}
@@ -89,7 +91,7 @@ export default function App() {
             )}
 
             {currentView === "about" && (
-              <motion.div key="about-wrap" className="w-full">
+              <motion.div key="about" className="w-full" {...pageTransition}>
                 <About
                   experiences={EXPERIENCES}
                   portraitImage={PORTRAIT_IMAGE}
@@ -98,7 +100,7 @@ export default function App() {
             )}
 
             {currentView === "contact" && (
-              <motion.div key="contact-wrap" className="w-full">
+              <motion.div key="contact" className="w-full" {...pageTransition}>
                 <Contact />
               </motion.div>
             )}
@@ -117,14 +119,24 @@ export default function App() {
       </AnimatePresence>
 
       {/* TIMEPASS MODERN DESIGN SYSTEM FOOTER */}
-      <footer
+      <motion.footer
         id="studio-footer"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="w-full bg-[#1b1c1c] text-white border-t border-neutral-800 py-12 md:py-16"
       >
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
             {/* Logo/Signet */}
-            <div className="md:col-span-2 text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="md:col-span-2 text-left"
+            >
               <span className="font-display font-black text-xl tracking-widest text-[#5a5a40]">
                 STUDIO
               </span>
@@ -161,10 +173,16 @@ export default function App() {
                   <Github className="h-4 w-4" />
                 </a>
               </div>
-            </div>
+            </motion.div>
 
             {/* Quick Map links */}
-            <div className="text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-left"
+            >
               <span className="font-mono text-[9px] font-bold tracking-widest text-gray-500 uppercase">
                 // MAP DIRECTORIES
               </span>
@@ -208,10 +226,16 @@ export default function App() {
                   </button>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* Technical credentials */}
-            <div className="text-left font-mono text-[10px] text-gray-500 space-y-1.5">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-left font-mono text-[10px] text-gray-500 space-y-1.5"
+            >
               <span className="block font-bold tracking-widest text-gray-500 uppercase text-[9px]">
                 // FRAMEWORK RECAP
               </span>
@@ -222,10 +246,16 @@ export default function App() {
                 MODE:{" "}
                 {personaMode === "nikhil" ? "Nikhil Personal" : "Studio Agency"}
               </p>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="mt-12 border-t border-neutral-850 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-gray-500 text-left gap-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-12 border-t border-neutral-850 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono text-gray-500 text-left gap-4"
+          >
             <span>
               &copy; {new Date().getFullYear()} STUDIO CO. ALL RIGHTS RESERVED
               WORLDWIDE.
@@ -239,9 +269,9 @@ export default function App() {
                 TERMS & IMPRESSUM
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   );
 }
