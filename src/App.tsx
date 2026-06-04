@@ -169,7 +169,7 @@ export default function App() {
               <div className="mt-6 flex items-center gap-3">
                 <a
                   id="foot-icon-instagram"
-                  href="https://twitter.com"
+                  href="https://www.instagram.com/s._.nikk/"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-neutral-800/80 p-2 text-gray-300 hover:text-white hover:bg-[#5a5a40] transition-all"
@@ -178,7 +178,7 @@ export default function App() {
                 </a>
                 <a
                   id="foot-icon-linkedin"
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/nikhil-shakya-00250b290/"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-neutral-800/80 p-2 text-gray-300 hover:text-white hover:bg-[#5a5a40] transition-all"
@@ -187,7 +187,7 @@ export default function App() {
                 </a>
                 <a
                   id="foot-icon-github"
-                  href="https://github.com"
+                  href="https://github.com/nikhilShakya7"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-neutral-800/80 p-2 text-gray-300 hover:text-white hover:bg-[#5a5a40] transition-all"
@@ -196,7 +196,7 @@ export default function App() {
                 </a>
                 <a
                   id="foot-icon-mail"
-                  href="https://github.com"
+                  href="mailto:shakyankhil2003@gmail.com"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full bg-neutral-800/80 p-2 text-gray-300 hover:text-white hover:bg-[#5a5a40] transition-all"
@@ -220,13 +220,7 @@ export default function App() {
               <ul className="mt-4 space-y-2 text-xs">
                 <li>
                   <button
-                    onClick={() =>
-                      setCurrentView(
-                        personaMode === "studio"
-                          ? "studio-home"
-                          : "nikhil-home",
-                      )
-                    }
+                    onClick={() => setCurrentView("nikhil-home")}
                     className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     Home Index
@@ -234,7 +228,7 @@ export default function App() {
                 </li>
                 <li>
                   <button
-                    onClick={() => setCurrentView("selected-works")}
+                    onClick={() => setCurrentView("works")}
                     className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     Selected Works
@@ -245,7 +239,7 @@ export default function App() {
                     onClick={() => setCurrentView("about")}
                     className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
-                    Designer Story
+                    About
                   </button>
                 </li>
                 <li>
