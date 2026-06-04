@@ -9,6 +9,7 @@ import Works from "./components/Works";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectDetailModal from "./components/ProjectDetailModal";
+import { Analytics } from "@vercel/analytics/react";
 import { motion, AnimatePresence } from "motion/react";
 import { pageTransition } from "./utils/animations";
 import {
@@ -283,6 +284,9 @@ export default function App() {
           </motion.div>
         </div>
       </motion.footer>
+
+      {/* VERCEL WEB ANALYTICS TRACKER COMPONENT INJECTED AT ROOT LEVEL */}
+      <Analytics />
     </div>
   );
 }
