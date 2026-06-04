@@ -11,6 +11,10 @@ import {
   Github,
   Linkedin,
   Instagram,
+  SearchCheckIcon,
+  Workflow,
+  Bug,
+  BugOff,
 } from "lucide-react";
 
 interface AboutProps {
@@ -22,23 +26,23 @@ export default function About({ experiences, portraitImage }: AboutProps) {
   const expertises = [
     {
       id: "exp-systems",
-      title: "Interactive Systems",
+      title: "Manual & Functional Testing",
       description:
-        "Building custom interactive frameworks, highly responsive web dashboards, and web canvases designed to perform under demanding conditions.",
-      icon: Cpu,
+        "Designing and executing comprehensive test cases to validate application functionality, user workflows, and business requirements across web and mobile platforms.",
+      icon: BugOff,
     },
     {
       id: "exp-ds",
-      title: "Design Systems",
+      title: "Test Automation",
       description:
-        "Engineering rigid, token-driven web components, layout grids, and visual guidelines scaled across multi-channel environments.",
-      icon: DraftingCompass,
+        "Building and maintaining automated test suites that improve test coverage, accelerate release cycles, and ensure consistent application quality throughout development.",
+      icon: Workflow,
     },
     {
       id: "exp-kinetic",
-      title: "Kinetic Graphics",
+      title: "Quality Assurance & Performance",
       description:
-        "Specifying clean, user-centric screen transitions, fluid hover states, and canvas renderings using industry-standard easings.",
+        "Conducting regression, usability, and performance testing while identifying defects, analyzing root causes, and collaborating with development teams to deliver reliable user experiences.",
       icon: Activity,
     },
   ];
@@ -63,20 +67,25 @@ export default function About({ experiences, portraitImage }: AboutProps) {
             className="mt-8 space-y-6 text-base leading-relaxed text-gray-600 md:text-lg font-sans"
           >
             <p className="font-medium text-[#1a1a1a]">
-              I am an independent interaction designer and creative director
-              based in Milan, working with cultural institutions and
-              forward-thinking brands globally.
+              I am a Quality Assurance Engineer passionate about building
+              reliable, user-focused digital products. My work centers on
+              ensuring software quality through comprehensive testing, defect
+              analysis, and continuous improvement of development processes.
             </p>
             <p>
-              Over the last decade, I've developed digital systems, interactive
-              installations, and brand identities that bridge physical spaces
-              and virtual mediums. My work is anchored in meticulous grid
-              structures, clear typographic hierarchy, and subtle transitions.
+              Over the years, I have collaborated with developers, designers,
+              and product teams to deliver stable web and mobile applications.
+              From creating detailed test plans and executing manual test cases
+              to implementing automated testing workflows, I focus on
+              identifying issues early and improving product reliability
+              throughout the development lifecycle.
             </p>
             <p>
-              I believe software interfaces must feel highly satisfying and
-              immediate, which is why I merge rigorous engineering and elegant
-              typography styling to deliver tailored aesthetic systems.
+              I believe great software is built on a foundation of quality,
+              usability, and performance. By combining analytical thinking,
+              attention to detail, and a strong understanding of user
+              expectations, I help teams deliver seamless experiences that users
+              can trust.
             </p>
           </motion.div>
 
@@ -143,7 +152,7 @@ export default function About({ experiences, portraitImage }: AboutProps) {
               src={portraitImage}
               alt="Designer Portrait"
               referrerPolicy="no-referrer"
-              className="w-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 aspect-[4/5]"
+              className="w-full object-cover rounded-2xl  transition-all duration-700 aspect-[4/5]"
             />
 
             <div className="mt-4 border-t border-[#e8e8df] pt-4 grid grid-cols-2 font-mono text-[10px] text-gray-450">
@@ -156,7 +165,7 @@ export default function About({ experiences, portraitImage }: AboutProps) {
               <div className="text-right">
                 <span>REPRESENTATION</span>
                 <span className="block mt-0.5 text-[#1a1a1a] font-bold">
-                  MILAN / MILANO
+                  PATAN, NEPAL
                 </span>
               </div>
             </div>
@@ -167,26 +176,26 @@ export default function About({ experiences, portraitImage }: AboutProps) {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="mt-8 flex justify-center gap-6"
+            className="mt-8MILANO flex justify-center gap-6"
           >
             {[
               {
                 id: "instagram-link",
-                href: "https://twitter.com",
+                href: "https://www.instagram.com/s._.nikk/",
                 icon: Instagram,
                 label: "Instagram",
                 color: "text-[#1da1f2]",
               },
               {
                 id: "linkedin-link",
-                href: "https://linkedin.com",
+                href: "https://www.linkedin.com/in/nikhil-shakya-00250b290/",
                 icon: Linkedin,
                 label: "LinkedIn",
                 color: "text-[#0a66c2]",
               },
               {
                 id: "github-link",
-                href: "https://github.com",
+                href: "https://github.com/nikhilShakya7",
                 icon: Github,
                 label: "GitHub",
                 color: "text-black",
@@ -200,7 +209,7 @@ export default function About({ experiences, portraitImage }: AboutProps) {
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ y: -2 }}
-                className="flex items-center gap-1.5 rounded-full border border-[#e8e8df] bg-[#fbfbf6] px-4 py-2 text-xs font-semibold text-stone-600 hover:text-[#1a1a1a] hover:border-[#5a5a40]/30 transition-colors cursor-pointer"
+                className="flex mt-4 items-center gap-1.5 rounded-full border border-[#e8e8df] bg-[#fbfbf6] px-4 py-2 text-xs font-semibold text-stone-600 hover:text-[#1a1a1a] hover:border-[#5a5a40]/30 transition-colors cursor-pointer"
               >
                 <Icon className={`h-3.5 w-3.5 ${color}`} />
                 {label}
@@ -256,11 +265,6 @@ export default function About({ experiences, portraitImage }: AboutProps) {
                   <p className="mt-3 text-xs text-gray-600 leading-relaxed font-sans">
                     {item.description}
                   </p>
-                </div>
-
-                <div className="mt-8 flex items-center gap-1 text-[10px] font-mono text-[#5a5a40] uppercase tracking-wider font-semibold opacity-60 group-hover:opacity-100 transition-opacity">
-                  Learn more{" "}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
               </motion.div>
             );

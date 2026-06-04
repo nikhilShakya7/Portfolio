@@ -58,7 +58,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "exp5",
-    period: "2025",
+    period: "2022 - 2025",
     role: "Freelancer",
     company: "GeoSpatial Pvt.Ltd",
     description:
@@ -106,5 +106,4 @@ export const TECH_STACK = {
   ],
 };
 
-export const PORTRAIT_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuA6ufwoG0jfcgWodW_1fNo6DDl0S4R6mWSXn7bWLnSSgxG2fX8zsrOCTtAGoGOAprnqau3U_LTLGk5zb2-VjNbm9pLvmRLkLukjLz-MsC8u-ZwTUdDzgV7AIbOh1ioZPLcQT3kzHjPwQG4K9taiK7FDGDG2Z0_Vq5WDJYv_kDd2TtGYEDgTtND1p0zh8xFRyFJgGcfpsgA0dQalm-2hywzSrG99o_ABiKUkVHirZaTT5FGh0i8hTMFVzNWbs0PIWvjKUv_SeYp-9JE3";
+export const PORTRAIT_IMAGE = "/images/pp.svg";

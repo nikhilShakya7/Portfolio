@@ -14,7 +14,7 @@ export default function Header({ currentView, onViewChange }: HeaderProps) {
     {
       id: "work-nav",
       label: "Work",
-      views: ["works", "nikhil-home"] as ViewType[],
+      views: ["works"] as ViewType[],
       targetView: "works" as ViewType,
       icon: Briefcase,
     },
