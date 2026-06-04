@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Project } from "./types";
+import { Project, ViewType } from "./types";
 import { useViewRouter } from "./hooks/useViewRouter";
 import Header from "./components/Header";
 import StudioHome from "./components/StudioHome";
@@ -33,6 +33,27 @@ export default function App() {
   const { currentView, setCurrentView } = useViewRouter();
   const [personaMode, setPersonaMode] = useState<"studio" | "nikhil">("studio");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [reloadKey, setReloadKey] = useState<{ [key: string]: number }>({
+    "studio-home": 0,
+    "nikhil-home": 0,
+    "selected-works": 0,
+    works: 0,
+    about: 0,
+    contact: 0,
+  });
+
+  // Handle navigation with reload capability
+  const handleViewChange = (view: ViewType) => {
+    if (currentView === view) {
+      // If clicking the same view, trigger a reload
+      setReloadKey((prev) => ({
+        ...prev,
+        [view]: (prev[view] || 0) + 1,
+      }));
+    } else {
+      setCurrentView(view);
+    }
+  };
 
   // Sync default home view when switcher changes persona mode
   const handlePersonaChange = (mode: "studio" | "nikhil") => {
@@ -47,6 +68,11 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [currentView]);
 
+  // Scroll to top when page reloads (reloadKey changes)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [Object.values(reloadKey).join(",")]);
+
   return (
     <div
       id="studio-app-root"
@@ -56,7 +82,7 @@ export default function App() {
         {/* Navigation Header bar state controller */}
         <Header
           currentView={currentView}
-          onViewChange={setCurrentView}
+          onViewChange={handleViewChange}
           // personaMode={personaMode}
           // onPersonaChange={handlePersonaChange}
         />
@@ -66,13 +92,13 @@ export default function App() {
           <AnimatePresence mode="wait">
             {currentView === "studio-home" && (
               <motion.div
-                key="studio-home"
+                key={`studio-home-${reloadKey["studio-home"]}`}
                 className="w-full"
                 {...pageTransition}
               >
                 <StudioHome
                   featuredProjects={PROJECTS.filter((p) => p.featured)}
-                  onViewChange={setCurrentView}
+                  onViewChange={handleViewChange}
                   onSelectProject={setSelectedProject}
                 />
               </motion.div>
@@ -80,7 +106,7 @@ export default function App() {
 
             {currentView === "nikhil-home" && (
               <motion.div
-                key="nikhil-home"
+                key={`nikhil-home-${reloadKey["nikhil-home"]}`}
                 className="w-full"
                 {...pageTransition}
               >
@@ -89,14 +115,14 @@ export default function App() {
                   techStack={TECH_STACK}
                   personalProjects={PROJECTS}
                   onSelectProject={setSelectedProject}
-                  onContact={() => setCurrentView("contact")}
+                  onContact={() => handleViewChange("contact")}
                 />
               </motion.div>
             )}
 
             {currentView === "selected-works" && (
               <motion.div
-                key="selected-works"
+                key={`selected-works-${reloadKey["selected-works"]}`}
                 className="w-full"
                 {...pageTransition}
               >
@@ -108,13 +134,21 @@ export default function App() {
             )}
 
             {currentView === "works" && (
-              <motion.div key="works" className="w-full" {...pageTransition}>
+              <motion.div
+                key={`works-${reloadKey}`}
+                className="w-full"
+                {...pageTransition}
+              >
                 <Works />
               </motion.div>
             )}
 
             {currentView === "about" && (
-              <motion.div key="about" className="w-full" {...pageTransition}>
+              <motion.div
+                key={`about-${reloadKey["about"]}`}
+                className="w-full"
+                {...pageTransition}
+              >
                 <About
                   experiences={EXPERIENCES}
                   portraitImage={PORTRAIT_IMAGE}
@@ -123,7 +157,11 @@ export default function App() {
             )}
 
             {currentView === "contact" && (
-              <motion.div key="contact" className="w-full" {...pageTransition}>
+              <motion.div
+                key={`contact-${reloadKey["contact"]}`}
+                className="w-full"
+                {...pageTransition}
+              >
                 <Contact />
               </motion.div>
             )}
@@ -221,7 +259,7 @@ export default function App() {
               <ul className="mt-4 space-y-2 text-xs">
                 <li>
                   <button
-                    onClick={() => setCurrentView("nikhil-home")}
+                    onClick={() => handleViewChange("nikhil-home")}
                     className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     Home Index
@@ -229,7 +267,7 @@ export default function App() {
                 </li>
                 <li>
                   <button
-                    onClick={() => setCurrentView("works")}
+                    onClick={() => handleViewChange("works")}
                     className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     Selected Works
@@ -237,7 +275,7 @@ export default function App() {
                 </li>
                 <li>
                   <button
-                    onClick={() => setCurrentView("about")}
+                    onClick={() => handleViewChange("about")}
                     className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     About
@@ -245,7 +283,7 @@ export default function App() {
                 </li>
                 <li>
                   <button
-                    onClick={() => setCurrentView("contact")}
+                    onClick={() => handleViewChange("contact")}
                     className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     Contact Portal
