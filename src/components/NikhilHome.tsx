@@ -81,7 +81,7 @@ export default function NikhilHome({
       {/* 1. Main Hero Section — Centered perfectly inside viewport height */}
       <section
         id="nikhil-jumbotron"
-        className="flex min-h-[calc(100vh-80px)] flex-col justify-between py-8 md:py-12"
+        className="relative flex min-h-[calc(100vh-80px)] flex-col justify-between py-8 md:py-12"
       >
         {/* TOP BAR */}
         <motion.div
@@ -99,13 +99,13 @@ export default function NikhilHome({
         </motion.div>
 
         {/* CENTER CONTENT — Flex grow holds the absolute center axis */}
-        <div className="flex flex-col items-center gap-10 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left my-auto py-8">
+        <div className="my-auto flex flex-col items-center gap-10 py-8 text-center lg:flex-row lg:items-center lg:justify-end">
           {/* Left / main copy */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center lg:items-start lg:max-w-2xl"
+            className="flex flex-col items-center lg:absolute lg:left-0 lg:top-[32%] lg:items-start lg:max-w-2xl lg:-translate-y-1/2"
           >
             <span className="font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase flex items-center gap-1.5">
               <Terminal className="h-3.5 w-3.5" />
@@ -125,7 +125,7 @@ export default function NikhilHome({
               <span className="inline-block w-[3px] h-[24px] md:h-[32px] bg-[#5a5a40] ml-1.5 animate-[ping_1s_infinite_ease-in-out]" />
             </h2>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg font-sans">
+            <p className="mt-6 max-w-xl text-left text-base leading-relaxed text-gray-600 sm:text-lg font-sans">
               A developer dedicated to learning, building, and delivering
               engaging digital experiences.
             </p>
