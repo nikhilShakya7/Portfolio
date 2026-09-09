@@ -26,7 +26,6 @@ export interface SkillProgress {
 }
 
 export type ViewType =
-  | "studio-home"
   | "selected-works"
   | "works"
   | "about"

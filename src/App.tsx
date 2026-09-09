@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Project, ViewType } from "./types";
 import { useViewRouter } from "./hooks/useViewRouter";
 import Header from "./components/Header";
-import StudioHome from "./components/StudioHome";
 import NikhilHome from "./components/NikhilHome";
 import SelectedWorks from "./components/SelectedWorks";
 import Works from "./components/Works";
@@ -32,10 +31,8 @@ import {
 
 export default function App() {
   const { currentView, setCurrentView } = useViewRouter();
-  const [personaMode, setPersonaMode] = useState<"studio" | "nikhil">("studio");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [reloadKey, setReloadKey] = useState<{ [key: string]: number }>({
-    "studio-home": 0,
     "nikhil-home": 0,
     "selected-works": 0,
     works: 0,
@@ -53,14 +50,6 @@ export default function App() {
       }));
     } else {
       setCurrentView(view);
-    }
-  };
-
-  // Sync default home view when switcher changes persona mode
-  const handlePersonaChange = (mode: "studio" | "nikhil") => {
-    setPersonaMode(mode);
-    if (currentView === "studio-home" || currentView === "nikhil-home") {
-      setCurrentView(mode === "studio" ? "studio-home" : "nikhil-home");
     }
   };
 
@@ -91,20 +80,6 @@ export default function App() {
         {/* Dynamic active view animated container */}
         <main className="w-full relative min-h-[calc(100vh-140px)]">
           <AnimatePresence mode="wait">
-            {currentView === "studio-home" && (
-              <motion.div
-                key={`studio-home-${reloadKey["studio-home"]}`}
-                className="w-full"
-                {...pageTransition}
-              >
-                <StudioHome
-                  featuredProjects={PROJECTS.filter((p) => p.featured)}
-                  onViewChange={handleViewChange}
-                  onSelectProject={setSelectedProject}
-                />
-              </motion.div>
-            )}
-
             {currentView === "nikhil-home" && (
               <motion.div
                 key={`nikhil-home-${reloadKey["nikhil-home"]}`}

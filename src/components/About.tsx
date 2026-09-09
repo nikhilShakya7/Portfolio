@@ -52,10 +52,10 @@ export default function About({ experiences, portraitImage }: AboutProps) {
       <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-20">
         {/* 1. Left Content Column */}
         <AnimatedSection className="lg:col-span-7">
-          <span className="font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase">
+          <span className="block font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase text-center md:text-left">
             // PROFILE
           </span>
-          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-[#1a1a1a] md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-[#1a1a1a] md:text-6xl text-center md:text-left">
             The Story So Far.
           </h1>
 
@@ -64,7 +64,7 @@ export default function About({ experiences, portraitImage }: AboutProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 space-y-6 text-base leading-relaxed text-gray-600 md:text-lg font-sans"
+            className="mt-8 space-y-6 text-base leading-relaxed text-gray-600 md:text-lg font-sans text-center md:text-left"
           >
             <p className="font-medium text-[#1a1a1a]">
               I am a Quality Assurance Engineer passionate about building

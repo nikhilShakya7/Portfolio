@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Project, SkillProgress } from "../types";
 import { motion } from "motion/react";
 import AnimatedSection from "./AnimatedSection";
+import AnimatedCat from "./AnimatedCat";
 import { staggerContainer, staggerItem } from "../utils/animations";
 import { Terminal, Code2, Database, Network, ChevronRight } from "lucide-react";
 
@@ -130,40 +131,50 @@ export default function NikhilHome({
             </p>
           </motion.div>
 
-          {/* Diagnostic Metadata card */}
+          {/* Diagnostics + Cat card */}
           <motion.div
             initial={{ opacity: 0, x: 24, scale: 0.98 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-sm shrink-0 border border-[#e8e8df] bg-[#fbfbf6] p-6 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.04)] font-mono text-xs"
+            className="flex w-full max-w-sm shrink-0 flex-col gap-6"
           >
-            <span className="text-[#5a5a40] font-bold block mb-4 uppercase tracking-widest text-[10px]">
-              &gt; SYSTEM STATE
-            </span>
-            <div className="space-y-3 text-gray-600">
-              <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
-                <span>ACTIVE REGION:</span>
-                <span className="text-[#1a1a1a] font-semibold">
-                  ASIA-SOUTH1
-                </span>
+            <div className="relative overflow-hidden rounded-3xl border border-[#e8e8df] bg-[radial-gradient(circle_at_top,#f8f5f0_0%,#e9e4dc_32%,#d6d1c7_100%)] shadow-[0_24px_80px_rgba(33,29,25,0.12)]">
+              <div className="pointer-events-none absolute inset-x-8 top-8 h-28 rounded-full bg-[#d7b37d]/25 blur-3xl" />
+              <div className="absolute left-5 top-5 z-10 rounded-full border border-[#aea38f]/60 bg-white/50 px-3 py-1 font-mono text-[9px] tracking-[0.32em] text-[#3a2c1a] uppercase backdrop-blur-sm">
+                following
               </div>
-              <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
-                <span>WORK SPEC:</span>
-                <span className="text-[#1a1a1a] font-semibold">
-                  CREATIVE DEVELOPER
-                </span>
-              </div>
-              <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
-                <span>EXPERIENCE:</span>
-                <span className="text-[#1a1a1a] font-semibold">
-                  LEARNING & SHAPING
-                </span>
-              </div>
-              <div className="flex justify-between pb-1">
-                <span>COLLAB:</span>
-                <span className="text-[#5a5a40] font-bold">
-                  CONFIRMED ACTIVE
-                </span>
+              <AnimatedCat className="relative h-[400px] w-full max-w-[320px] py-6 mx-auto" />
+            </div>
+
+            <div className="border border-[#e8e8df] bg-[#fbfbf6] p-6 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.04)] font-mono text-xs">
+              <span className="text-[#5a5a40] font-bold block mb-4 uppercase tracking-widest text-[10px]">
+                &gt; SYSTEM STATE
+              </span>
+              <div className="space-y-3 text-gray-600">
+                <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
+                  <span>ACTIVE REGION:</span>
+                  <span className="text-[#1a1a1a] font-semibold">
+                    ASIA-SOUTH1
+                  </span>
+                </div>
+                <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
+                  <span>WORK SPEC:</span>
+                  <span className="text-[#1a1a1a] font-semibold">
+                    CREATIVE DEVELOPER
+                  </span>
+                </div>
+                <div className="flex justify-between border-b border-[#e8e8df]/40 pb-2">
+                  <span>EXPERIENCE:</span>
+                  <span className="text-[#1a1a1a] font-semibold">
+                    LEARNING & SHAPING
+                  </span>
+                </div>
+                <div className="flex justify-between pb-1">
+                  <span>COLLAB:</span>
+                  <span className="text-[#5a5a40] font-bold">
+                    CONFIRMED ACTIVE
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>
