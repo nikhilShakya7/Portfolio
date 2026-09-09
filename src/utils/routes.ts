@@ -3,7 +3,7 @@ import { ViewType } from "../types";
 export const VIEW_PATHS: Record<ViewType, string> = {
   "nikhil-home": "/",
   "selected-works": "/work",
-  "works": "/works",
+  works: "/works",
   about: "/about",
   contact: "/contact",
 };
