@@ -9,6 +9,7 @@ import Works from "./components/Works";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectDetailModal from "./components/ProjectDetailModal";
+import GhostCursor from "./components/GhostCursor";
 import { Analytics } from "@vercel/analytics/react";
 import { motion, AnimatePresence } from "motion/react";
 import { pageTransition } from "./utils/animations";
@@ -325,6 +326,9 @@ export default function App() {
 
       {/* VERCEL WEB ANALYTICS TRACKER COMPONENT INJECTED AT ROOT LEVEL */}
       <Analytics />
+
+      {/* GHOST CURSOR FOLLOWER */}
+      <GhostCursor />
     </div>
   );
 }
