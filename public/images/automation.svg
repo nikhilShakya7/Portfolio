@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <rect width="900" height="1200" fill="#f2f1ec"/>
+  <rect x="36" y="36" width="828" height="1128" fill="none" stroke="#d8d7d0" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="80" y="118" font-family="monospace" font-size="32" font-weight="700" letter-spacing="7" fill="#1a1a1a">AUTOMATION // SUITE</text>
+  <text x="80" y="158" font-family="monospace" font-size="18" letter-spacing="1" fill="#6a6a62">END-TO-END TEST PIPELINE — METAMINT HELPDESK</text>
+
+  <!-- Gear emblem -->
+  <g>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(0 782 78)"/>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(45 782 78)"/>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(90 782 78)"/>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(135 782 78)"/>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(180 782 78)"/>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(225 782 78)"/>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(270 782 78)"/>
+    <rect x="770" y="56" width="24" height="44" rx="10" fill="#1a1a1a" transform="rotate(315 782 78)"/>
+    <circle cx="782" cy="78" r="34" fill="none" stroke="#1a1a1a" stroke-width="16"/>
+    <circle cx="782" cy="78" r="14" fill="#1a1a1a"/>
+  </g>
+
+  <!-- Browser window -->
+  <rect x="110" y="230" width="680" height="740" rx="20" fill="#17181a"/>
+
+  <!-- Chrome dots -->
+  <circle cx="152" cy="270" r="7" fill="#c06060"/>
+  <circle cx="178" cy="270" r="7" fill="#c8a84a"/>
+  <circle cx="204" cy="270" r="7" fill="#58a35a"/>
+  <!-- Address bar -->
+  <rect x="232" y="252" width="380" height="36" rx="18" fill="#26282e"/>
+  <text x="252" y="276" font-family="monospace" font-size="16" fill="#8a8a82">metamint.test/test-suite</text>
+
+  <line x1="130" y1="312" x2="770" y2="312" stroke="#26282e" stroke-width="2"/>
+
+  <!-- List header -->
+  <text x="150" y="352" font-family="monospace" font-size="15" letter-spacing="2" fill="#8a8a82">TEST FILES — 6 PASSED</text>
+
+  <!-- Test rows -->
+  <g font-family="monospace">
+    <circle cx="168" cy="406" r="13" fill="#58a35a"/>
+    <path d="M161.5 406 L166 410.5 L174.5 401.5" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="198" y="412" font-size="22" fill="#e6e6e0">admin.spec.ts</text>
+    <text x="692" y="412" font-size="14" text-anchor="end" fill="#58a35a">PASSED</text>
+    <rect x="198" y="424" width="470" height="5" rx="2.5" fill="#2a2d33"/>
+
+    <circle cx="168" cy="468" r="13" fill="#58a35a"/>
+    <path d="M161.5 468 L166 472.5 L174.5 463.5" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="198" y="474" font-size="22" fill="#e6e6e0">auth.spec.ts</text>
+    <text x="692" y="474" font-size="14" text-anchor="end" fill="#58a35a">PASSED</text>
+    <rect x="198" y="486" width="470" height="5" rx="2.5" fill="#2a2d33"/>
+
+    <circle cx="168" cy="530" r="13" fill="#58a35a"/>
+    <path d="M161.5 530 L166 534.5 L174.5 525.5" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="198" y="536" font-size="22" fill="#e6e6e0">chat.spec.ts</text>
+    <text x="692" y="536" font-size="14" text-anchor="end" fill="#58a35a">PASSED</text>
+    <rect x="198" y="548" width="470" height="5" rx="2.5" fill="#2a2d33"/>
+
+    <circle cx="168" cy="592" r="13" fill="#58a35a"/>
+    <path d="M161.5 592 L166 596.5 L174.5 587.5" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="198" y="598" font-size="22" fill="#e6e6e0">tickets.spec.ts</text>
+    <text x="692" y="598" font-size="14" text-anchor="end" fill="#58a35a">PASSED</text>
+    <rect x="198" y="610" width="470" height="5" rx="2.5" fill="#2a2d33"/>
+
+    <circle cx="168" cy="654" r="13" fill="#58a35a"/>
+    <path d="M161.5 654 L166 658.5 L174.5 649.5" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="198" y="660" font-size="22" fill="#e6e6e0">conversation.spec.ts</text>
+    <text x="692" y="660" font-size="14" text-anchor="end" fill="#58a35a">PASSED</text>
+    <rect x="198" y="672" width="470" height="5" rx="2.5" fill="#2a2d33"/>
+
+    <circle cx="168" cy="716" r="13" fill="#58a35a"/>
+    <path d="M161.5 716 L166 720.5 L174.5 711.5" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="198" y="722" font-size="22" fill="#e6e6e0">profile.spec.ts</text>
+    <text x="692" y="722" font-size="14" text-anchor="end" fill="#58a35a">PASSED</text>
+    <rect x="198" y="734" width="470" height="5" rx="2.5" fill="#2a2d33"/>
+  </g>
+
+  <!-- Progress bar -->
+  <text x="150" y="792" font-family="monospace" font-size="15" letter-spacing="2" fill="#8a8a82">SUITE PROGRESS</text>
+  <rect x="150" y="800" width="540" height="16" rx="8" fill="#26282e"/>
+  <rect x="150" y="800" width="540" height="16" rx="8" fill="#58a35a"/>
+  <text x="740" y="814" font-family="monospace" font-size="16" text-anchor="end" fill="#e6e6e0">100%</text>
+
+  <!-- Terminal -->
+  <rect x="150" y="856" width="600" height="94" rx="14" fill="#26282e"/>
+  <text x="176" y="892" font-family="monospace" font-size="14" fill="#8a8a82">PLAYWRIGHT — CHROMIUM · FIREFOX · WEBKIT</text>
+  <text x="176" y="922" font-family="monospace" font-size="16" fill="#6a6a62">$ npx playwright test</text>
+  <text x="176" y="946" font-family="monospace" font-size="16" fill="#58a35a">21 passed (12.4s)  ✓</text>
+
+  <!-- Footer -->
+  <text x="150" y="1052" font-family="monospace" font-size="22" font-weight="700" letter-spacing="2" fill="#1a1a1a">COVERAGE</text>
+  <text x="150" y="1082" font-family="monospace" font-size="18" fill="#6a6a62">ADMIN · AUTH · CHAT WIDGET · TICKETS · CONVERSATIONS</text>
+
+  <g font-family="monospace">
+    <rect x="150" y="1108" width="178" height="46" rx="10" fill="#1a1a1a"/>
+    <text x="239" y="1137" font-size="16" text-anchor="middle" fill="#f5f5f0">WORDPRESS</text>
+    <rect x="348" y="1108" width="178" height="46" rx="10" fill="#1a1a1a"/>
+    <text x="437" y="1137" font-size="16" text-anchor="middle" fill="#f5f5f0">PLAYWRIGHT</text>
+    <rect x="546" y="1108" width="178" height="46" rx="10" fill="#1a1a1a"/>
+    <text x="635" y="1137" font-size="16" text-anchor="middle" fill="#f5f5f0">TYPESCRIPT</text>
+  </g>
+</svg>

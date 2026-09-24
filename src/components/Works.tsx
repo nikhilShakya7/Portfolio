@@ -4,7 +4,7 @@ import { motion, AnimatePresence, Variants } from "motion/react";
 interface DesignProject {
   id: string;
   title: string;
-  category: "REACT JS" | "NEXT JS" | "PYTHON" | "MOBILE";
+  category: "REACT JS" | "NEXT JS" | "PYTHON" | "AUTOMATION";
   description: string;
   image: string;
   link: string;
@@ -39,7 +39,7 @@ const cardVariants: Variants = {
 
 export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
   const [activeFilter, setActiveFilter] = useState<
-    "ALL" | "REACT JS" | "NEXT JS" | "PYTHON" | "MOBILE"
+    "ALL" | "REACT JS" | "NEXT JS" | "PYTHON" | "AUTOMATION"
   >("ALL");
 
   const categories = [
@@ -47,10 +47,28 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
     "REACT JS",
     "NEXT JS",
     "PYTHON",
-    "MOBILE",
+    "AUTOMATION",
   ] as const;
 
   const worksData: DesignProject[] = [
+    {
+      id: "metamint-helpdesk-automation",
+      link: "https://github.com/nikhilShakya7/metaminit_helpdesk-automation",
+      title: "Metamint Helpdesk Automation",
+      description:
+        "An end-to-end test automation suite for the Metamint Helpdesk WordPress support plugin, built with Playwright and TypeScript. Covers the chat widget, tickets, auth, admin dashboard, and two-way conversations.",
+      category: "AUTOMATION",
+      image: "/images/automation.svg",
+    },
+    {
+      id: "qa-practice-store",
+      link: "https://github.com/nikhilShakya7/CI-CD-workflow-",
+      title: "QA Practice Store",
+      description:
+        "A vanilla HTML, CSS and JS demo e-commerce store designed for practicing manual testing and Playwright automation. Ships 55 end-to-end tests run through a GitHub Actions CI/CD pipeline on every push.",
+      category: "AUTOMATION",
+      image: "/images/qa-pipeline.svg",
+    },
     {
       id: "aura-architecture",
       link: "https://react-js-event-manager.vercel.app/",
@@ -113,24 +131,6 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
       category: "PYTHON",
       link: "https://github.com/nikhilShakya7/Python_Face-Attendence-System",
       image: "/images/face.svg",
-    },
-    {
-      id: "mobile",
-      link: "https://github.com/nikhilShakya7/Flutter-Flappy_Bird",
-      title: "Flappy Bird Clone",
-      description:
-        "A fun and engaging Flappy Bird clone built using Flutter and Dart with smooth animations, collision detection, and scoring.",
-      category: "MOBILE",
-      image: "/images/8.png",
-    },
-    {
-      id: "Technest",
-      link: "https://reactjs-tech-nest.vercel.app/",
-      title: "Technest",
-      description:
-        "A sleek tech UI built with React and Bootstrap to showcase media content.",
-      category: "NEXT JS",
-      image: "/images/2.svg",
     },
   ];
 
@@ -238,9 +238,7 @@ export default function SelectedWorks({ onSelectProject }: SelectedWorksProps) {
                       absolute inset-0
                       h-full w-full
                       object-cover
-                      grayscale
                       transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-                      group-hover:grayscale-0
                       group-hover:scale-[1.04]
                     "
                   />

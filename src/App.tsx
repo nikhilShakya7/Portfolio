@@ -92,6 +92,7 @@ export default function App() {
                   personalProjects={PROJECTS}
                   onSelectProject={setSelectedProject}
                   onContact={() => handleViewChange("contact")}
+                  onViewWorks={() => handleViewChange("works")}
                 />
               </motion.div>
             )}

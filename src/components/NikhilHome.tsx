@@ -16,6 +16,7 @@ interface NikhilHomeProps {
   personalProjects: Project[];
   onContact: () => void;
   onSelectProject: (project: Project) => void;
+  onViewWorks: () => void;
 }
 
 export default function NikhilHome({
@@ -24,6 +25,7 @@ export default function NikhilHome({
   personalProjects,
   onContact,
   onSelectProject,
+  onViewWorks,
 }: NikhilHomeProps) {
   const fullPhrase = "Code. Create. Innovate.";
   const [currentText, setCurrentText] = useState("");
@@ -339,6 +341,13 @@ export default function NikhilHome({
                 Projects Grid
               </h2>
             </div>
+            <button
+              onClick={onViewWorks}
+              className="group/view flex items-center gap-1.5 font-mono text-xs font-bold tracking-widest text-[#5a5a40] uppercase transition-colors hover:text-[#1a1a1a] cursor-pointer"
+            >
+              View More
+              <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover/view:translate-x-1" />
+            </button>
           </div>
 
           <motion.div
@@ -354,7 +363,9 @@ export default function NikhilHome({
                 variants={staggerItem}
                 whileHover={{ y: -4 }}
                 id={`personal-proj-${project.id}`}
-                onClick={() => onSelectProject(project)}
+                onClick={() =>
+                  window.open(project.link, "_blank", "noopener,noreferrer")
+                }
                 className="group cursor-pointer rounded-3xl border border-[#e8e8df]/70 bg-[#fbfbf6] p-5 hover:shadow-xs transition-shadow duration-300 hover:border-[#5a5a40]/30"
               >
                 <div className="relative overflow-hidden bg-stone-200 rounded-2xl aspect-video">
@@ -362,7 +373,7 @@ export default function NikhilHome({
                     src={project.image}
                     alt={project.title}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:scale-102 group-hover:grayscale-0"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-102"
                   />
                   <span className="absolute bottom-3 right-3 rounded-full bg-white/95 px-2.5 py-0.5 font-mono text-[9px] text-[#1a1a1a] uppercase font-semibold shadow-xs">
                     {project.category}

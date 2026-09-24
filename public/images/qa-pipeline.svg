@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <rect width="900" height="1200" fill="#f2f1ec"/>
+  <rect x="36" y="36" width="828" height="1128" fill="none" stroke="#d8d7d0" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="80" y="118" font-family="monospace" font-size="32" font-weight="700" letter-spacing="7" fill="#1a1a1a">QA PIPELINE // STORE</text>
+  <text x="80" y="158" font-family="monospace" font-size="18" letter-spacing="1" fill="#6a6a62">PLAYWRIGHT · GITHUB ACTIONS · VANILLA JS</text>
+
+  <!-- GitHub Actions hub icon -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="10">
+    <circle cx="782" cy="66" r="30"/>
+    <circle cx="740" cy="124" r="30"/>
+    <circle cx="824" cy="124" r="30"/>
+  </g>
+
+  <!-- Pipeline arrows + stage cards -->
+  <g>
+    <line x1="300" y1="330" x2="322" y2="330" stroke="#1a1a1a" stroke-width="6"/>
+    <path d="M318 322 L330 330 L318 338" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="540" y1="330" x2="562" y2="330" stroke="#1a1a1a" stroke-width="6"/>
+    <path d="M558 322 L570 330 L558 338" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Stage 1 -->
+  <rect x="80" y="250" width="214" height="160" rx="16" fill="#1b1c1c"/>
+  <circle cx="187" cy="308" r="26" fill="#58a35a"/>
+  <path d="M175.5 308 L183 315.5 L199 299.5" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="187" y="356" font-family="monospace" font-size="19" font-weight="700" text-anchor="middle" fill="#e6e6e0">LINT &amp; TEST</text>
+  <text x="187" y="384" font-family="monospace" font-size="14" text-anchor="middle" fill="#8a8a82">VANILLA STORE</text>
+
+  <!-- Stage 2 -->
+  <rect x="320" y="250" width="214" height="160" rx="16" fill="#1b1c1c"/>
+  <circle cx="427" cy="308" r="26" fill="#c8a84a"/>
+  <path d="M427 296 L427 318 M427 324 L427 328" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <text x="427" y="356" font-family="monospace" font-size="19" font-weight="700" text-anchor="middle" fill="#e6e6e0">PLAYWRIGHT E2E</text>
+  <text x="427" y="384" font-family="monospace" font-size="14" text-anchor="middle" fill="#8a8a82">55 TESTS</text>
+
+  <!-- Stage 3 -->
+  <rect x="560" y="250" width="214" height="160" rx="16" fill="#1b1c1c"/>
+  <circle cx="667" cy="308" r="26" fill="#58a35a"/>
+  <path d="M655.5 308 L663 315.5 L679 299.5" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="667" y="356" font-family="monospace" font-size="19" font-weight="700" text-anchor="middle" fill="#e6e6e0">DEPLOY</text>
+  <text x="667" y="384" font-family="monospace" font-size="14" text-anchor="middle" fill="#8a8a82">CI / CD</text>
+
+  <!-- Workflow run card -->
+  <rect x="80" y="470" width="740" height="300" rx="20" fill="#17181a"/>
+  <text x="112" y="518" font-family="monospace" font-size="21" font-weight="700" fill="#e6e6e0">qa-pipeline — main</text>
+  <rect x="684" y="494" width="116" height="36" rx="18" fill="#26282e"/>
+  <circle cx="704" cy="512" r="6" fill="#58a35a"/>
+  <text x="762" y="518" font-family="monospace" font-size="15" text-anchor="middle" fill="#58a35a">SUCCESS</text>
+
+  <g font-family="monospace">
+    <circle cx="122" cy="560" r="10" fill="#58a35a"/>
+    <path d="M117.5 560 L120.5 563 L126.5 557" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="148" y="565" font-size="17" fill="#d9d9d4">checkout</text>
+    <text x="796" y="565" font-size="14" text-anchor="end" fill="#8a8a82">0s</text>
+
+    <circle cx="122" cy="605" r="10" fill="#58a35a"/>
+    <path d="M117.5 605 L120.5 608 L126.5 602" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="148" y="610" font-size="17" fill="#d9d9d4">setup-node v20</text>
+    <text x="796" y="610" font-size="14" text-anchor="end" fill="#8a8a82">2s</text>
+
+    <circle cx="122" cy="650" r="10" fill="#58a35a"/>
+    <path d="M117.5 650 L120.5 653 L126.5 647" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="148" y="655" font-size="17" fill="#d9d9d4">npm ci</text>
+    <text x="796" y="655" font-size="14" text-anchor="end" fill="#8a8a82">9s</text>
+
+    <circle cx="122" cy="695" r="10" fill="#58a35a"/>
+    <path d="M117.5 695 L120.5 698 L126.5 692" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="148" y="700" font-size="17" fill="#d9d9d4">npx playwright test — 55 passed</text>
+    <text x="796" y="700" font-size="14" text-anchor="end" fill="#8a8a82">46s</text>
+
+    <circle cx="122" cy="740" r="10" fill="#58a35a"/>
+    <path d="M117.5 740 L120.5 743 L126.5 737" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="148" y="745" font-size="17" fill="#d9d9d4">upload report artifact</text>
+    <text x="796" y="745" font-size="14" text-anchor="end" fill="#8a8a82">3s</text>
+  </g>
+
+  <!-- Store previews -->
+  <text x="80" y="842" font-family="monospace" font-size="15" letter-spacing="2" fill="#6a6a62">STORE UNDER TEST</text>
+
+  <g>
+    <rect x="80" y="866" width="350" height="210" rx="14" fill="#ffffff" stroke="#dcdbd4" stroke-width="2"/>
+    <rect x="96" y="882" width="100" height="100" rx="8" fill="#e3e2db"/>
+    <rect x="212" y="902" width="190" height="12" rx="6" fill="#1a1a1a"/>
+    <rect x="212" y="924" width="120" height="10" rx="5" fill="#c9c8c0"/>
+    <g fill="#d8a320">
+      <circle cx="212" cy="950" r="6"/>
+      <circle cx="228" cy="950" r="6"/>
+      <circle cx="244" cy="950" r="6"/>
+      <circle cx="260" cy="950" r="6"/>
+      <circle cx="276" cy="950" r="6" fill="#e3e2db"/>
+    </g>
+    <rect x="212" y="972" width="84" height="26" rx="13" fill="#5a5a40"/>
+    <text x="254" y="990" font-family="monospace" font-size="15" text-anchor="middle" fill="#f5f5f0">$89.90</text>
+    <rect x="96" y="1020" width="318" height="40" rx="10" fill="#f2f1ec"/>
+    <text x="255" y="1044" font-family="monospace" font-size="14" text-anchor="middle" fill="#6a6a62">ADD TO CART →</text>
+
+    <rect x="470" y="866" width="350" height="210" rx="14" fill="#ffffff" stroke="#dcdbd4" stroke-width="2"/>
+    <rect x="486" y="882" width="100" height="100" rx="8" fill="#e3e2db"/>
+    <rect x="602" y="902" width="190" height="12" rx="6" fill="#1a1a1a"/>
+    <rect x="602" y="924" width="120" height="10" rx="5" fill="#c9c8c0"/>
+    <g fill="#d8a320">
+      <circle cx="602" cy="950" r="6"/>
+      <circle cx="618" cy="950" r="6"/>
+      <circle cx="634" cy="950" r="6"/>
+      <circle cx="650" cy="950" r="6"/>
+      <circle cx="666" cy="950" r="6"/>
+    </g>
+    <rect x="602" y="972" width="84" height="26" rx="13" fill="#5a5a40"/>
+    <text x="644" y="990" font-family="monospace" font-size="15" text-anchor="middle" fill="#f5f5f0">$129.00</text>
+    <rect x="486" y="1020" width="318" height="40" rx="10" fill="#f2f1ec"/>
+    <text x="645" y="1044" font-family="monospace" font-size="14" text-anchor="middle" fill="#6a6a62">ADD TO CART →</text>
+  </g>
+
+  <!-- Chips -->
+  <g font-family="monospace">
+    <rect x="80" y="1108" width="210" height="44" rx="10" fill="#1a1a1a"/>
+    <text x="185" y="1136" font-size="16" text-anchor="middle" fill="#f5f5f0">HTML · CSS · JS</text>
+    <rect x="320" y="1108" width="210" height="44" rx="10" fill="#1a1a1a"/>
+    <text x="425" y="1136" font-size="16" text-anchor="middle" fill="#f5f5f0">PLAYWRIGHT</text>
+    <rect x="560" y="1108" width="210" height="44" rx="10" fill="#1a1a1a"/>
+    <text x="665" y="1136" font-size="16" text-anchor="middle" fill="#f5f5f0">GITHUB ACTIONS</text>
+  </g>
+</svg>

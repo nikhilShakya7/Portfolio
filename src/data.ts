@@ -2,16 +2,6 @@ import { Project, Experience, SkillProgress } from "./types";
 
 export const PROJECTS: Project[] = [
   {
-    id: "mobile",
-    link: "https://github.com/nikhilShakya7/Flutter-Flappy_Bird",
-    title: "Flappy Bird Clone",
-    description:
-      "A fun and engaging Flappy Bird clone built using Flutter and Dart with smooth animations, collision detection, and scoring.",
-    category: "MOBILE",
-    image: "/images/8.png",
-    tag: "MOBILE",
-  },
-  {
     id: "py",
     tag: "PYTHON",
     title: "Automated face recognition Attendance System",
@@ -20,6 +10,16 @@ export const PROJECTS: Project[] = [
     category: "PYTHON",
     link: "https://github.com/nikhilShakya7/Python_Face-Attendence-System",
     image: "/images/face.svg",
+  },
+  {
+    id: "metamint-helpdesk-automation",
+    tag: "AUTOMATION",
+    title: "Metamint Helpdesk Automation",
+    description:
+      "An end-to-end test automation suite for the Metamint Helpdesk WordPress support plugin, built with Playwright and TypeScript. Covers the chat widget, tickets, auth, admin dashboard, and two-way conversations.",
+    category: "AUTOMATION",
+    link: "https://github.com/nikhilShakya7/metaminit_helpdesk-automation",
+    image: "/images/automation.svg",
   },
 ];
 

@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  category: "PYTHON" | "REACT JS" | "NEXT JS" | "MOBILE";
+  category: "PYTHON" | "REACT JS" | "NEXT JS" | "MOBILE" | "AUTOMATION";
   tag: string;
   image: string;
   client?: string;
